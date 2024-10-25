@@ -1,0 +1,82 @@
+Git Commands
+Clone a Repository
+
+git clone <repository-url>
+Clones a remote repository to your local machine, copying all files, branches, and commit history.
+Check Status
+
+git status
+Displays the current status of the working directory and staging area, showing staged changes and untracked files.
+Add Changes to Staging
+
+git add <file-or-directory>
+Stages changes for the next commit, specifying individual files or using . to stage all modified files.
+Commit Changes
+
+git commit -m "Commit message"
+Saves the staged changes to the repository with a descriptive commit message, creating a new commit.
+Push Changes
+
+git push origin <branch-name>
+Uploads local commits to the remote repository on the specified branch.
+Pull Changes
+
+git pull origin <branch-name>
+Fetches and integrates changes from the remote repository into your local branch.
+Create a New Branch
+
+git branch <branch-name>
+Creates a new branch in your local repository.
+Switch to a Branch
+
+git checkout <branch-name>
+Switches the working directory to the specified branch.
+Merge Branches
+
+git merge <branch-name>
+Combines the specified branch into the current branch, resolving conflicts if necessary.
+View Commit History
+
+git log
+Displays a list of all commits in the current branch, showing commit hash, author, date, and message.
+Docker Commands
+Run a Container
+
+docker run -d --name <container-name> -p <host-port>:<container-port> <image-name>
+Runs a new container from the specified image in detached mode, mapping a port on the host to a port in the container.
+List Running Containers
+
+docker ps
+Displays a list of currently running containers, including status, ports, and names.
+Inspect a Container
+
+docker inspect <container-name>
+Provides detailed information about a container, including configuration, network settings, and state.
+View Resource Usage
+
+docker stats
+Displays a live stream of resource usage statistics for all running containers, including CPU and memory usage.
+Stop a Container
+
+docker stop <container-name>
+Stops a running container. You can restart it later using docker start <container-name>.
+Remove a Container
+
+docker rm <container-name>
+Removes a stopped container from the Docker host.
+Save an Image to a Tar Archive
+
+docker save <image-name> -o <archive-name>.tar
+Saves the specified Docker image to a tar file for sharing or backup.
+Load an Image from a Tar Archive
+
+docker load -i <archive-name>.tar
+Loads a Docker image from a tar file back into Docker.
+List Docker Images
+
+docker images
+Displays a list of all Docker images stored on your local machine.
+View Port Mappings
+
+docker port <container-name>
+Lists the port mappings for the specified container, showing exposed ports and their mappings on the host.
