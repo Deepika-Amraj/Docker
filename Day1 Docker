@@ -1,4 +1,4 @@
-Git Commands
+###Git Commands ###
 Clone a Repository
 
 git clone <repository-url>
@@ -39,12 +39,19 @@ View Commit History
 
 git log
 Displays a list of all commits in the current branch, showing commit hash, author, date, and message.
-Docker Commands
+
+***************Docker Commands************************************************************************
 Run a Container
 
 docker run -d --name <container-name> -p <host-port>:<container-port> <image-name>
 Runs a new container from the specified image in detached mode, mapping a port on the host to a port in the container.
 List Running Containers
+
+Explanation:
+-d: Runs the container in detached mode (in the background).
+--name my_nginx_container: Names the container as my_nginx_container.
+nginx: Specifies the image to use for the container.
+
 
 docker ps
 Displays a list of currently running containers, including status, ports, and names.
@@ -70,9 +77,6 @@ docker save <image-name> -o <archive-name>.tar
 Saves the specified Docker image to a tar file for sharing or backup.
 Load an Image from a Tar Archive
 
-docker load -i <archive-name>.tar
-Loads a Docker image from a tar file back into Docker.
-List Docker Images
 
 docker images
 Displays a list of all Docker images stored on your local machine.
@@ -80,3 +84,33 @@ View Port Mappings
 
 docker port <container-name>
 Lists the port mappings for the specified container, showing exposed ports and their mappings on the host.
+1. Check Listening Ports Using netstat
+The netstat command helps you see which ports your EC2 instance is listening to:
+
+The netstat command helps you see which ports your EC2 instance is listening to:
+sudo netstat -tuln
+-t : Show TCP ports.
+-u : Show UDP ports.
+-l : Show only listening ports.
+-n : Show numerical addresses instead of resolving names.
+
+Port 80 and 443 are for web traffic. Port 80 is like a door for non-secure websites (HTTP), and Port 443 is for secure websites (HTTPS), which is why they're open to everyone (0.0.0.0/0).
+
+Port 22 is a special door to remotely access your server (SSH). Having this open to everyone makes it easier to connect, but it can also pose a security risk if your key or password isn’t strong.
+
+ Save an Image to a Tar Archive
+The goal is to back up a Docker image by saving it to a file. Here’s the command:
+
+docker save nginx -o my_image.tar
+Explanation :
+docker save: This command is used to save a Docker image as a file.
+nginx: The name of the Docker image you want to save. In this case, it's nginx.
+-o my_image.tar: The -o option specifies the output file. The image will be saved in a file called my_image.tar.
+
+Load an Image from a Tar Archive
+Once you have the image saved in a file, you can load it back into Docker with:
+
+docker load -i my_image.tar
+Explanation for a Non-IT Background:
+docker load: This command is used to load a Docker image from a file.
+-i my_image.tar: The -i option specifies the input file from which the image will be loaded.
