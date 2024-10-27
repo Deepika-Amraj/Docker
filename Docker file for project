@@ -1,0 +1,33 @@
+Docker file for Docker Project (Simple Django app)
+
+# Base image
+FROM python:3.12
+Purpose: This line specifies the base image to be used for the container. In this case, it's the official Python image with version 3.12.
+Explanation: Starting from a base image with Python pre-installed saves time, as it provides a complete Python environment ready for running Django.
+
+
+# Working directory
+WORKDIR /app
+Purpose: Sets the working directory in the container to /app.
+Explanation: This directory will be the default location for any following commands. If the directory does not exist, Docker will create it.
+
+# Copy code to the container
+COPY . /app
+Purpose: Copies all files from the current directory on the host machine to the /app directory in the container.
+Explanation: This transfers the Django project files to the container, so it has access to all necessary code and configuration files.
+
+# Install libraries
+RUN pip install -r requirements.txt
+Purpose: Installs the Python libraries listed in requirements.txt.
+Explanation: Ensures the container has all dependencies required to run the Django application.
+
+# Run migrations
+RUN python cool_counters/manage.py migrate
+Purpose: Applies database migrations.
+Explanation: This command sets up or updates the database tables according to the Django project’s models and migration files. The path cool_counters/manage.py is the location of the Django manage.py file.
+
+CMD ["python","cool_counters/manage.py", "runserver", "0.0.0.0:8000"]
+Purpose: Runs the Django development server on port 8000, listening on all available network interfaces (0.0.0.0).
+Explanation: The CMD command tells Docker to run this command when the container starts. This starts the Django server, making it accessible on port 8000.
+
+Together, these lines create a Docker image for a Django project, handle dependencies, apply migrations, and start the application when the container runs.
