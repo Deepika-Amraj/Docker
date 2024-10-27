@@ -1,4 +1,6 @@
 Dockerizing a Simple Django App
+
+git clone https://github.com/deparkes/simple-django-app.git 
 This repository contains steps to build and run a simple Django application using Docker. The following commands help you clone the app, set up a Docker environment, and launch the containerized app.
 
 Key Steps:
