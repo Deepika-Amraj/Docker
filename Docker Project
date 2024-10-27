@@ -1,0 +1,57 @@
+Dockerizing a Simple Django App
+This repository contains steps to build and run a simple Django application using Docker. The following commands help you clone the app, set up a Docker environment, and launch the containerized app.
+
+Key Steps:
+Clone Repository: git clone https://github.com/deparkes/simple-django-app.git
+Inspect and Edit Files: Open requirements.txt and settings.py as needed.
+Build Docker Image: docker build -t counter-app .
+Run Docker Container: docker run -d -p 8000:8000 counter-app:latest
+Verify Setup: Check running containers and view logs with docker ps and docker logs <container_id>.
+Update & Rebuild: Make updates to settings.py (e.g., ALLOWED_HOSTS) and rebuild.
+
+
+
+# Clone the simple Django app repository
+git clone https://github.com/deparkes/simple-django-app.git
+
+# Navigate into the cloned directory
+cd simple-django-app
+
+# Open the requirements.txt file to inspect or edit dependencies
+vim requirements.txt
+
+# Create and edit Dockerfile for building the app's Docker image
+vim Dockerfile
+
+# Build a Docker image named "counter-app" from the Dockerfile in the current directory
+docker build -t counter-app .
+
+# Run the container and map port 8000 on the host to port 8000 in the container
+docker run -d -p 8000:8000 counter-app:latest
+
+# List all running containers
+docker ps
+
+# List all containers, including those that have exited
+docker ps -a
+
+# View logs of a specific container (replace with your container ID)
+docker logs <container_id>
+
+# Enter the "cool_counters" directory if needed (navigate the project structure)
+cd cool_counters
+
+# Open settings.py file to modify Django configurations, e.g., ALLOWED_HOSTS
+vim settings.py
+
+# After changes, rebuild the Docker image
+docker build -t counter-app .
+
+# Stop and remove a running container (replace with your container ID)
+docker kill <container_id> && docker rm <container_id>
+
+# Display the Dockerfile content to verify configurations
+cat Dockerfile
+
+# List the command history
+history
